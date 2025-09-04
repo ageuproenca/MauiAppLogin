@@ -8,6 +8,8 @@
 
             string? usuarioLogado = null;
 
+            // se não for inicializado o manpage, dá erro de thread. Nao sei pq!!!!
+            MainPage = new Login();
 
             try
             {
@@ -32,8 +34,6 @@
 
                 throw new Exception(ex.Message);
             }
-
-            //MainPage = new Login();
         }
 
         protected override Window CreateWindow(IActivationState? activationState)

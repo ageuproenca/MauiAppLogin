@@ -1,8 +1,12 @@
-﻿namespace MauiAppLogin
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace MauiAppLogin
 {
     public class DadosUsuario
     {
-        public string Usuario { get; set; }
-        public string Senha { get; set; }
+        [Key]
+        public int Id { get; set; } 
+        public string Usuario { get; set; } 
+        public string Senha { get; set; } 
     }
 }

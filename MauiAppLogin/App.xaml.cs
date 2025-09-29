@@ -8,7 +8,7 @@
 
             string? usuarioLogado = null;
 
-            // se não for inicializado o manpage, dá erro de thread. Nao sei pq!!!!
+            // se não for inicializado o mainpage, dá erro de thread. Nao sei pq!!!!
             MainPage = new Login();
 
             try

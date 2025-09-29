@@ -22,7 +22,7 @@ public partial class Login : ContentPage
 				{
 					return db.Users.ToList();
 				}
-			})
+			});
 
             DadosUsuario dadosDigitados = new DadosUsuario()
 			{
@@ -53,8 +53,15 @@ public partial class Login : ContentPage
     {
 		base.OnAppearing();
 
-        this.dbLogin = new LoginContext();
-        this.dbLogin.Database.EnsureCreated();
-        this.dbLogin.Users.Load();
+		try
+		{
+			this.dbLogin = new LoginContext();
+			this.dbLogin.Database.EnsureCreated();
+			this.dbLogin.Users.Load();
+		}
+		catch (Exception ex)
+		{
+			DisplayAlert("Ops", ex.Message, "ok");
+		}
     }
 }

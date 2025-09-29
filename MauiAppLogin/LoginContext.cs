@@ -11,7 +11,11 @@ namespace MauiAppLogin
     {
         public DbSet<DadosUsuario> Users { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite("Data Source=login.db");
+        //=> optionsBuilder.UseSqlite("Data Source=login.db");
+        {
+            string dbPath = Path.Combine(FileSystem.AppDataDirectory, "login.db");
+            optionsBuilder.UseSqlite($"Filename={dbPath}");
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<DadosUsuario>().HasData(
